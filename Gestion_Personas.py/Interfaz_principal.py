@@ -35,7 +35,7 @@ def crear_registro():
     if id=='':
         if nombre!='' and apellido!='' and direccion!='':
             con.insertar(nombre,apellido,direccion,clave,texto)
-            print("Dato registrado!")
+            messagebox.showinfo("Informacion","Se ha creado el registro")
         else: messagebox.showinfo("Informacion","Campos incompletos no se puede crear el registro!!")
     else: messagebox.showinfo("Informacion","Registro existente no se puede crear de nuevo!!")
 #LEER REGISTROS
@@ -90,15 +90,16 @@ def eliminar_registro():
     else:messagebox.showinfo("Informacion","No hay datos para eliminar!!")
 #Ventanas Emergentes
 def infoAditional():
-    #messagebox.showinfo("Informacion","Version System V.1.2")
+    messagebox.showinfo("Informacion","Version System V.1.2")
     "Mensaje de Advertencia"
     #messagebox.showwarning("Adevertencia","Licencia caducada")
     "Mensaje de Error"
     #messagebox.showerror("Error","Error de conexión")
     "Ventana Emergente de Confirmación"
-    valor=messagebox.askquestion("Atención","Desea eliminar una persona")
+    #valor=messagebox.askquestion("Atención","Desea eliminar una persona")
     #valor=messagebox.askokcancel("Atención","Desea Salir de la aplicación")
-    print(valor)
+def informacion():
+    messagebox.showinfo("Informacion","Proyecto de Gestion de Personas")
 #-----------------------------
 #VARIABLES DE LOS CAMPOS
 txt_id=StringVar()
@@ -139,7 +140,7 @@ menuCrud.add_command(label="Eliminar",command=eliminar_registro)
 
 #Sub_Menus Ayuda
 menuAyuda.add_command(label="Licencia",command=infoAditional)
-menuAyuda.add_command(label="Acerca de...")
+menuAyuda.add_command(label="Acerca de...",command=informacion)
 
 #Titulo
 lbl_titulo=Label(ventana,text="Sistema de Administración de Personas")
